@@ -1,0 +1,41 @@
+#sends message to put the bins out to todo list
+
+alias: General Bin
+description: ""
+trigger:
+  - platform: calendar
+    event: start
+    offset: "-0:30:0"
+    entity_id: calendar.bin
+condition: []
+action:
+  - service: todo.add_item
+    metadata: {}
+    data:
+      item: put out rubbish bin
+    target:
+      entity_id: todo.to_do
+  - service: notify.mobile_app_oneplus_a3003
+    data:
+      message: "Bins to go out "
+mode: single
+
+
+# mesage for the recycle bins
+
+alias: Recycle Bin
+description: ""
+trigger:
+  - platform: calendar
+    event: start
+    offset: "-0:25:0"
+    entity_id: calendar.recycle_bins
+condition: []
+action:
+  - service: todo.add_item
+    metadata: {}
+    data:
+      item: Recycle to go out
+    target:
+      entity_id: todo.to_do
+mode: single
