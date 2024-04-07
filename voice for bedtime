@@ -1,0 +1,21 @@
+alias: voice bedtime
+description: ""
+trigger:
+  - platform: conversation
+    command: Bedtime
+condition: []
+action:
+  - type: turn_off
+    device_id: 55b8f9a1d092f2f6be8eccff708fd728
+    entity_id: cb373dd607a1c8805a8c48ca4ee89781
+    domain: switch
+  - type: turn_off
+    device_id: 2ae81541a46325318a525029c812d77a
+    entity_id: f49ce8e47815e32f8493305f84c78fac
+    domain: light
+  - type: turn_off
+    device_id: d5390844154f89916aed1e791b635f6c
+    entity_id: cbe658f1b4adb4e8f27121376185b731
+    domain: light
+  - set_conversation_response: good night my lord
+mode: single
