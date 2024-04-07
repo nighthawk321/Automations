@@ -1,0 +1,18 @@
+alias: Toothbrusg battery
+description: ""
+trigger: []
+condition:
+  - type: is_battery_level
+    condition: device
+    device_id: 585209c1d2985f6617bb48bde5dc3d9d
+    entity_id: dc79db2d61e9fc8de4d87e1fdf843410
+    domain: sensor
+    below: 25
+action:
+  - service: todo.add_item
+    metadata: {}
+    data:
+      item: Charge your toothbrush
+    target:
+      entity_id: todo.to_do
+mode: single
