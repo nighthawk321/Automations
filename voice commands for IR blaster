@@ -1,0 +1,74 @@
+#the command to change to roku via the ir blaster
+
+alias: change to media 1
+description: ""
+trigger:
+  - platform: conversation
+    command: change to roku
+condition: []
+action:
+  - service: mqtt.publish
+    data:
+      qos: 0
+      retain: false
+      topic: zigbee2mqtt/Ir_Blaster/set
+      payload: >-
+        {"ir_code_to_send":"B00osRGjAjcC4BEDAY4G4BUDQDtAI+ADB0AL4AcD4AMjAo4GNyADQAdAAxE3Ah2eTSjlCDcC//9NKOUIowI="}
+mode: single
+
+
+#the commnad to change to kodi
+
+alias: change to media 3
+description: ""
+trigger:
+  - platform: conversation
+    command: change to media 3
+condition: []
+action:
+  - service: mqtt.publish
+    data:
+      qos: 0
+      retain: false
+      topic: zigbee2mqtt/Ir_Blaster/set
+      payload: >-
+        {"ir_code_to_send":"B5sorxGkAioC4BEDAY4G4BUDQDtAI0AHQAPgAwtAD8ADQBdAA0APQAfgAwMTQZ6nCCQBpwhlAa8RdASbKKcIpAI="}
+mode: single
+
+
+#The command to turn the TV up
+alias: Turn down the TV
+description: ""
+trigger:
+  - platform: conversation
+    command:
+      - turn down the tv
+condition: []
+action:
+  - service: mqtt.publish
+    data:
+      qos: 0
+      retain: false
+      topic: zigbee2mqtt/Ir_Blaster/set
+      payload: >-
+        {"ir_code_to_send":"B7gRuBE1Ap0G4AED4AsB4B8fQAFAK+APAcAbQAfgAwMHhri4EbgRNQLgAxPgCwHgHx9AAUAr4A8BwBtAB+ADA+B8hwIGNQI="}
+mode: single
+
+#the command to turn the TV down
+
+alias: Turn up the TV
+description: ""
+trigger:
+  - platform: conversation
+    command:
+      - turn up the tv
+condition: []
+action:
+  - service: mqtt.publish
+    data:
+      qos: 0
+      retain: false
+      topic: zigbee2mqtt/Ir_Blaster/set
+      payload: >-
+        {"ir_code_to_send":"B7cRtxE0Ap8G4AED4AsB4Dcf4AMB4ANLwAsHiLi3EbcRNALAD0AH4AsBQBfAA+ALAcAbQAfgFwFAI+AHA+B8hwIGNAI="}
+mode: single
