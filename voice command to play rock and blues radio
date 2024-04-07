@@ -1,0 +1,28 @@
+alias: Voice blues and rock radio
+description: ""
+trigger:
+  - platform: conversation
+    command: Play rock and blues radio
+condition: []
+action:
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.bedroom
+    data:
+      media_content_id: media-source://radio_browser/2b739ef4-593e-4190-be36-5c93f0d6ad7b
+      media_content_type: audio/mpeg
+    metadata:
+      title: Blues & Rock Radio
+      thumbnail: https://i.ibb.co/7pjwNCm/Blues-Rock.jpg
+      media_class: music
+      children_media_class: null
+      navigateIds:
+        - {}
+        - media_content_type: app
+          media_content_id: media-source://radio_browser
+        - media_content_type: music
+          media_content_id: media-source://radio_browser/tag
+        - media_content_type: music
+          media_content_id: media-source://radio_browser/tag/blues
+  - set_conversation_response: yes my lord
+mode: single
