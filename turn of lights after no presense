@@ -1,0 +1,19 @@
+alias: turn off after no presence
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.my_room_presence_occupancy
+    from: "on"
+    to: "off"
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+condition: []
+action:
+  - service: light.turn_off
+    data: {}
+    target:
+      device_id: 2ae81541a46325318a525029c812d77a
+mode: single
