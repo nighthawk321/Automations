@@ -1,0 +1,13 @@
+alias: voice stop bedroom
+description: ""
+trigger:
+  - platform: conversation
+    command: Stop bedroom
+condition: []
+action:
+  - service: media_player.media_stop
+    data: {}
+    target:
+      device_id: 7e73919f986dd9cbccba4ee6d102a1e6
+  - set_conversation_response: yes my lord
+mode: single
