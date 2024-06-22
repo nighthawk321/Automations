@@ -1,0 +1,15 @@
+alias: hit vibrate to turn off tv
+description: ""
+trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 3f11d518ec879d961811e83fee466fa4
+    type: action
+    subtype: vibration
+condition: []
+action:
+  - type: turn_off
+    device_id: c4589daa64aaab55fe8d4cc0385b9b6a
+    entity_id: bf129008675148146418cd0a074be070
+    domain: switch
+mode: single
