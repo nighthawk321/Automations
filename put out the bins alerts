@@ -22,20 +22,23 @@ mode: single
 
 
 # mesage for the recycle bins
-
-alias: Recycle Bin
+alias: put out recycle bin
 description: ""
-trigger:
-  - platform: calendar
-    event: start
-    offset: "-0:25:0"
-    entity_id: calendar.recycle_bins
-condition: []
-action:
-  - service: todo.add_item
-    metadata: {}
+triggers:
+  - event: start
+    offset: "-0:30:0"
+    entity_id: calendar.recycle_bin
+    trigger: calendar
+conditions: []
+actions:
+  - metadata: {}
     data:
-      item: Recycle to go out
+      item: put out recycle bin
     target:
-      entity_id: todo.to_do
+      entity_id: todo.tasks
+    action: todo.add_item
+  - action: notify.mobile_app_oneplus_a3003
+    data:
+      message: The recycle needs to go out
+      title: Alert
 mode: single
