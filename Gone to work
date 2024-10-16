@@ -1,0 +1,22 @@
+#attivated using an nfc tag
+#turns of the lights
+
+
+alias: Gone to work
+description: ""
+triggers:
+  - trigger: tag
+    tag_id: dac16b0d-b4f0-4c01-bed0-8723590a70ea
+conditions: []
+actions:
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.bedside_light
+  - action: tts.cloud_say
+    data:
+      cache: false
+      entity_id: media_player.bedroom
+      message: Fine, leave me but have a nice day
+mode: single
